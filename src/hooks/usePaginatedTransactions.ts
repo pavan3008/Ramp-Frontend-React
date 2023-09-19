@@ -22,7 +22,7 @@ export function usePaginatedTransactions(): PaginatedTransactionsResult {
         return response
       }
 
-      return { data: response.data, nextPage: response.nextPage }
+      return { data: [...previousResponse.data, ...response.data], nextPage: response.nextPage } /* Bug 4: Clicking on View More button not showing correct data */
     })
   }, [fetchWithCache, paginatedTransactions])
 

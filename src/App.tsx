@@ -78,7 +78,7 @@ export function App() {
           {transactions !== null && (
             <button
               className="RampButton"
-              disabled={ paginatedTransactionsUtils.loading || paginatedTransactions?.nextPage == null ? true : false } /* Bug 4: Clicking on View More button not showing correct data */
+              disabled={ paginatedTransactionsUtils.loading || paginatedTransactions?.nextPage == null ? true : false } /* Bug 6: View more button not working as expected */
               onClick={async () => {
                 await loadAllTransactions()
               }}
