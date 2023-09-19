@@ -123,6 +123,8 @@ hr.RampBreak--l {
 
 .RampInputCheckbox--container {
   display: flex;
+  align-items: center; /* Bug 2: Approve checkbox not working */
+  position: relative;
 }
 
 .RampInputCheckbox--label {
@@ -149,8 +151,13 @@ hr.RampBreak--l {
   background-color: var(--color-constructive);
 }
 
-.RampInputCheckbox--input {
-  display: none;
+.RampInputCheckbox--input { /* Bug 2: Approve checkbox not working*/
+  display: inline;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .RampButton {
