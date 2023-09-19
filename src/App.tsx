@@ -64,8 +64,10 @@ export function App() {
             if (newValue === null) {
               return
             }
-
-            await loadTransactionsByEmployee(newValue.id)
+            else if (newValue.id === "") {
+              await loadAllTransactions()
+            } /* Bug 3: Cannot select All Employees after selecting an employee */
+            else await loadTransactionsByEmployee(newValue.id)
           }}
         />
 
