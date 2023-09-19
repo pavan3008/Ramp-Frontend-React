@@ -21,12 +21,12 @@ export function App() {
 
   const loadAllTransactions = useCallback(async () => {
     setIsLoading(true)
-    transactionsByEmployeeUtils.invalidateData()
+    // transactionsByEmployeeUtils.invalidateData() /* Bug 7: Approving a transaction won't persist the new value */
 
     await employeeUtils.fetchAll()
     setIsLoading(false) /* Bug 5: Employees filter not available during loading more data Part 1 */
     await paginatedTransactionsUtils.fetchAll()
-  }, [employeeUtils, paginatedTransactionsUtils, transactionsByEmployeeUtils])
+  }, [employeeUtils, paginatedTransactionsUtils])
 
   const loadTransactionsByEmployee = useCallback(
     async (employeeId: string) => {
